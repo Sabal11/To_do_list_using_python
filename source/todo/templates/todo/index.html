@@ -8,6 +8,16 @@
 </head>
 
 <body>
+    {% if request.user.is_authenticated %}
+     <p> Hello, Welcome {{request.user}}</p>
+     <a href="{% url 'logout' %}"> Log Out</a>
+    {% else %}
+     <a href="{% url 'login' %}">Log In</a> 
+    {% endif %}
+    <hr>
+
+    <h1>TO-DO List</h1>
+    
     <table border="1">
         <tr>
             <th>Tasks</th>
@@ -21,7 +31,7 @@
         </tr>
         {% empty %}
         <h3> No item in list </h3>
-        <a herf=""> Add New Item</a>
+        <a href="{% url 'create'  %}"> Add New Item</a>
         {% endfor %}
     </table>
     <a href="{% url 'create'  %}"> Create </a>
