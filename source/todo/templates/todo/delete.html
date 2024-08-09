@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Are you Sure wanna delete the task?  {{task}}</p>
+        <input type="submit" value="Yes Delete">
+    </form>
+    <a href="{% url 'Task' %}">No, Go Back</a>
+</body>
+</html>

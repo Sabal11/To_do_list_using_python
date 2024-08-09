@@ -8,22 +8,23 @@
 </head>
 
 <body>
-    <table>
+    <table border="1">
         <tr>
-            <th>Items</th>
+            <th>Tasks</th>
         </tr>
         {% for tasks in task %}
         <tr>
             <td>{{tasks.title}}</td>
             <td><a href="{% url 'details' tasks.id %}"> View </a></td>
-            <td><a href="{% url 'create'  %}"> Create </a></td>
             <td><a href="{% url 'update' tasks.id %}"> Update </a></td>
+            <td><a href="{% url 'delete' tasks.id %}"> Delete </a></td>
         </tr>
         {% empty %}
         <h3> No item in list </h3>
         <a herf=""> Add New Item</a>
         {% endfor %}
     </table>
+    <a href="{% url 'create'  %}"> Create </a>
 </body>
 
 </html>
