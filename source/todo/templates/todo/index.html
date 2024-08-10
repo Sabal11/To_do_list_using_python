@@ -5,13 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-
 </head>
 
 <body>
     <div class="container">
         {% if request.user.is_authenticated %}
-        <p>Hello, Welcome {{request.user}}</p>
+        <h1>Hello, Welcome {{request.user}}</h1>
         <a href="{% url 'logout' %}" class="btn">Log Out</a>
         {% else %}
         <a href="{% url 'login' %}" class="btn">Log In</a>
@@ -20,11 +19,13 @@
     </div>
 
     <div class="container">
-        <h1>TO-DO List</h1>
+        <h1><u>TO-DO List</u></h1>
 
         <table border="1">
             <tr>
                 <th>Tasks</th>
+                <th>Action</th>
+                <th>Action</th>
                 <th>Action</th>
             </tr>
             {% for tasks in task %}
