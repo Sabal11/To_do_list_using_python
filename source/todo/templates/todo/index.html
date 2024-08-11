@@ -76,6 +76,24 @@
         .btn:hover {
             background-color: #004a99;
         }
+
+        .completed td {
+            color: green;
+            font-weight: bold;
+        }
+
+        .completed .icon {
+            color: green;
+            margin-right: 8px;
+        }
+
+        .completed .btn {
+            background-color: #4CAF50;
+        }
+
+        .completed .btn:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 
@@ -93,7 +111,7 @@
     <div class="container">
         <h1><u>TO-DO List</u></h1>
 
-        <table border="1">
+        <table>
             <tr>
                 <th>Tasks</th>
                 <th>Action</th>
@@ -101,8 +119,8 @@
                 <th>Action</th>
             </tr>
             {% for tasks in task %}
-            <tr>
-                <td>{{tasks.title}}</td>
+            <tr class="{% if tasks.is_completed %}completed{% endif %}">
+                <td><span class="icon">{% if tasks.is_completed %}✔{% endif %}</span>{{tasks.title}}</td>
                 <td><a href="{% url 'details' tasks.id %}" class="btn">View</a></td>
                 <td><a href="{% url 'update' tasks.id %}" class="btn">Update</a></td>
                 <td><a href="{% url 'delete' tasks.id %}" class="btn">Delete</a></td>
